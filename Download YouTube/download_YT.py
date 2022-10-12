@@ -35,7 +35,7 @@ print("Duração do video: ",converte_tempo)
 #Data de publicação do vídeo
 print("Data de publicação: ",yt.publish_date)
 
-#Descrição do video
+#Descrição do video(caso queira, apagar o #)
 #print("Description:\n",yt.description)
 
 #Pega a url da imagem da thumbnail
