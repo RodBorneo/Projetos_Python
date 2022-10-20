@@ -9,6 +9,7 @@ Created on Tue Oct 11 17:35:36 2022
 import datetime
 from pytube import YouTube
 
+
 def progress(streams, chunk: bytes, bytes_remaining: int):
     contentsize = video.filesize
     size = contentsize - bytes_remaining
@@ -18,6 +19,7 @@ def progress(streams, chunk: bytes, bytes_remaining: int):
 
 url = input("Digite a URL do vídeo: ")
 yt = YouTube(url, on_progress_callback=progress)
+
 
 #Título do video
 print("Título: ",yt.title)
@@ -41,7 +43,12 @@ print("Data de publicação: ",yt.publish_date)
 #Pega a url da imagem da thumbnail
 print("Thumbnail: ", yt.thumbnail_url)
 
-
 video = yt.streams.get_highest_resolution()
+print(yt.streams.get_highest_resolution().resolution)
 video.download()
 
+def audio_download():
+    print("Fazendo o download apenas do audio do vídeo")
+    audio = yt.streams.filter(only_audio=True)[0]
+    audio.download()
+    
